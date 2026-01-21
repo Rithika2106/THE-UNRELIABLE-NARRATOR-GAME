@@ -1,0 +1,139 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+/* Function declarations */
+void sceneLockedRoom(int *mind);
+void sceneMirror(int *mind);
+void sceneCorridor(int *mind);
+void sceneClock(int *mind);
+void sceneMemory(int *mind);
+void showEnding(int *mind);
+
+int main() {
+    int mindStability = 100;
+    int *mind = &mindStability;
+
+    printf("\n=====================================\n");
+    printf("\n=== THE FORGOTTEN ROOM : MIND FRACTURE ===\n");
+    printf("=====================================\n");
+    printf("You wake up in a dark unfamiliar place.\n");
+    printf("Your mental stability: %d\n", *mind);
+
+    sceneLockedRoom(mind);
+    sceneMirror(mind);
+    sceneCorridor(mind);
+    sceneClock(mind);
+    sceneMemory(mind);
+    showEnding(mind);
+
+    return 0;
+}
+
+/* -------- Scene 1 -------- */
+void sceneLockedRoom(int *mind) {
+    int choice;
+    printf("\n[Scene 1: The Locked Room]\n");
+    printf("Strange symbols glow on the walls.\n");
+    printf("1. Touch the symbols\n");
+    printf("2. Force the door open\n");
+    printf("Choice: ");
+    scanf("%d", &choice);
+
+    if (choice == 1) {
+        printf("The symbols whisper secrets...\n");
+        *mind -= 10;
+    } else {
+        printf("A shock runs through your body!\n");
+        *mind -= 20;
+    }
+}
+
+/* -------- Scene 2 -------- */
+void sceneMirror(int *mind) {
+    int choice;
+    printf("\n[Scene 2: The Whispering Mirror]\n");
+    printf("Your reflection moves on its own.\n");
+    printf("1. Speak to it\n");
+    printf("2. Break the mirror\n");
+    printf("Choice: ");
+    scanf("%d", &choice);
+
+    if (choice == 1) {
+        printf("It reveals a hidden truth.\n");
+        *mind += 10;
+    } else {
+        printf("Shattered glass clouds your thoughts.\n");
+        *mind -= 15;
+    }
+}
+
+/* -------- Scene 3 -------- */
+void sceneCorridor(int *mind) {
+    int choice;
+    printf("\n[Scene 3: The Shadow Corridor]\n");
+    printf("Shadows crawl along the walls.\n");
+    printf("1. Follow the shadows\n");
+    printf("2. Walk straight without looking\n");
+    printf("Choice: ");
+    scanf("%d", &choice);
+
+    if (choice == 1) {
+        printf("The shadows drain your sanity.\n");
+        *mind -= 25;
+    } else {
+        printf("You pass safely through.\n");
+        *mind += 5;
+    }
+}
+
+/* -------- Scene 4 (Mystery Added) -------- */
+void sceneClock(int *mind) {
+    int choice;
+    printf("\n[Scene 4: The Bleeding Clock]\n");
+    printf("A huge clock drips red liquid.\n");
+    printf("1. Stop the clock\n");
+    printf("2. Let time flow\n");
+    printf("Choice: ");
+    scanf("%d", &choice);
+
+    if (choice == 1) {
+        printf("Time freezes. Your head aches.\n");
+        *mind -= 20;
+    } else {
+        printf("The ticking calms your mind.\n");
+        *mind += 10;
+    }
+}
+
+/* -------- Scene 5 (Mystery Added) -------- */
+void sceneMemory(int *mind) {
+    int choice;
+    printf("\n[Scene 5: The Memory Vault]\n");
+    printf("Fragments of your past float around.\n");
+    printf("1. Relive your memories\n");
+    printf("2. Destroy them\n");
+    printf("Choice: ");
+    scanf("%d", &choice);
+
+    if (choice == 1) {
+        printf("You remember who you are.\n");
+        *mind += 20;
+    } else {
+        printf("Your identity fades away.\n");
+        *mind -= 30;
+    }
+}
+
+/* -------- Ending -------- */
+void showEnding(int *mind) {
+    printf("\n========== FINAL RESULT ==========\n");
+    printf("Mental Stability: %d\n", *mind);
+
+    if (*mind >= 80) {
+        printf("🌟 SECRET ENDING: You escape with the truth.\n");
+    } else if (*mind >= 40) {
+        printf("🚪 You escape, but your memories are broken.\n");
+    } else {
+        printf("💀 BAD ENDING: You are trapped in your mind forever.\n");
+    }
+}
